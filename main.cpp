@@ -4,3 +4,8 @@
 
 #define SIZE 4096
 
+int main() {
+    HANDLE hMapFile;
+    LPCTSTR pBuf;
+
+ 
