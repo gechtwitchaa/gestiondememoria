@@ -8,4 +8,12 @@ int main() {
     HANDLE hMapFile;
     LPCTSTR pBuf;
 
+    hMapFile = CreateFileMapping(
+            INVALID_HANDLE_VALUE,
+            NULL,
+            PAGE_READWRITE,
+            0,
+            SIZE,
+            TEXT("SharedMemory"));
+
  
