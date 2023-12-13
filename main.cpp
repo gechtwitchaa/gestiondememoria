@@ -27,4 +27,38 @@ int main() {
                                  0,
                                  SIZE);
 
-  
+    if (pBuf == NULL) {
+        printf("Could not map view of file (%d).\n", GetLastError());
+
+        CloseHandle(hMapFile);
+        return 1;
+    }
+
+    // Writing to shared memory
+    strcpy((char*)pBuf, "Hello, child process!");
+
+    // Creating child process
+    PROCESS_INFORMATION pi;
+    STARTUPINFO si;
+    ZeroMemory(&si, sizeof(si));
+    si.cb = sizeof(si);
+    ZeroMemory(&pi, sizeof(pi));
+
+    if (!CreateProcess(
+            NULL,
+            "child_process.exe",
+            NULL,
+            NULL,
+            FALSE,
+            0,
+            NULL,
+            NULL,
+            &si,
+            &pi
+    )) {
+        printf("CreateProcess failed (%d).\n", GetLastError());
+
+        UnmapViewOfFile(pBuf);
+        CloseHandle(hMapFile);
+        return 1;
+    }
