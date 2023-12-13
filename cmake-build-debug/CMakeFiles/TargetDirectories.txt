@@ -1,0 +1,3 @@
+C:/Users/alber_wzgn3ys/Documents/GitHub/gestiondememoria/cmake-build-debug/CMakeFiles/gestiondememoria.dir
+C:/Users/alber_wzgn3ys/Documents/GitHub/gestiondememoria/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/alber_wzgn3ys/Documents/GitHub/gestiondememoria/cmake-build-debug/CMakeFiles/rebuild_cache.dir
