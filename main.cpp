@@ -62,3 +62,15 @@ int main() {
         CloseHandle(hMapFile);
         return 1;
     }
+
+
+    WaitForSingleObject(pi.hProcess, INFINITE);
+
+
+    printf("Child reads: %s\n", pBuf);
+
+    UnmapViewOfFile(pBuf);
+    CloseHandle(hMapFile);
+
+    return 0;
+}
