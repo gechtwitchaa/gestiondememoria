@@ -16,4 +16,15 @@ int main() {
             SIZE,
             TEXT("SharedMemory"));
 
- 
+    if (hMapFile == NULL) {
+        printf("Could not create file mapping object (%d).\n", GetLastError());
+        return 1;
+    }
+
+    pBuf = (LPTSTR)MapViewOfFile(hMapFile,
+                                 FILE_MAP_ALL_ACCESS,
+                                 0,
+                                 0,
+                                 SIZE);
+
+  
